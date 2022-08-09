@@ -20,8 +20,7 @@ The transitions added to the app in this codelab:
 - Fade Through transition between bottom app bar actions
 
 The starter code is available on the default `starter` branch, and the complete
-code is available on the `complete` branch, which can you can checkout by
-running `git checkout complete`.
+code is available on `main` branch.
 
 | Android | iOS |
 |----|----|
