@@ -7,8 +7,17 @@ users understand and navigate an app, as described in the
 
 This repo houses the source for the
 [Material motion system codelab](https://codelabs.developers.google.com/codelabs/material-motion-flutter),
-during which you will build Material transitions into an example email app
+during which we build Material transitions into an example email app
 called Reply.
+
+The transitions added to the app in this codelab:
+- Container Transform transition from email list to email detail page
+- Container Transform transition from FAB to compose email page
+- Shared Z-Axis transition from search icon to search view page
+- Fade Through transition between mailbox pages
+- Fade Through transition between compose and reply FAB
+- Fade Through transition between disappearing mailbox title
+- Fade Through transition between bottom app bar actions
 
 The starter code is available on the default `starter` branch, and the complete
 code is available on the `complete` branch, which can you can checkout by
