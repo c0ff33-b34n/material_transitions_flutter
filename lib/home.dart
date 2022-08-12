@@ -720,15 +720,18 @@ class _ReplyFabState extends State<_ReplyFab>
       selector: (context, emailStore) => emailStore.onMailView,
       builder: (context, onMailView, child) {
         // TODO: Add Fade through transition between compose and reply FAB (Motion)
-        final fabSwitcher = onMailView
-            ? const Icon(
-                Icons.reply_all,
-                color: Colors.black,
-              )
-            : const Icon(
-                Icons.create,
-                color: Colors.black,
-              );
+        final fabSwitcher = _FadeThroughTransitionSwitcher(
+          fillColor: Colors.transparent,
+          child: onMailView
+              ? const Icon(
+                  Icons.reply_all,
+                  color: Colors.black,
+                )
+              : const Icon(
+                  Icons.create,
+                  color: Colors.black,
+                ),
+        );
         final tooltip = onMailView ? 'Reply' : 'Compose';
 
         // TODO: Add Container Transform from FAB to compose email page (Motion)
@@ -774,3 +777,27 @@ class _ReplyFabState extends State<_ReplyFab>
 }
 
 // TODO: Add Fade through transition between compose and reply FAB (Motion)
+class _FadeThroughTransitionSwitcher extends StatelessWidget {
+  const _FadeThroughTransitionSwitcher({
+    required this.fillColor,
+    required this.child,
+  });
+
+  final Widget child;
+  final Color fillColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return PageTransitionSwitcher(
+      transitionBuilder: (child, animation, secondaryAnimation) {
+        return FadeThroughTransition(
+          fillColor: fillColor,
+          child: child,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+        );
+      },
+      child: child,
+    );
+  }
+}
